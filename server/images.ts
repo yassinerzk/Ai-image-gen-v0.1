@@ -1,11 +1,12 @@
 "use server"
 
+import { google } from '@ai-sdk/google';
 import { generateText } from 'ai';
 import fs from 'node:fs';
 
 export async function generateImage( prompt: string) {
   const result = await generateText({
-    model: 'gemini-2.5-flash-image-preview',
+    model: google('gemini-2.5-flash-image-preview'),
     prompt,
   });
   let fileName = '';
